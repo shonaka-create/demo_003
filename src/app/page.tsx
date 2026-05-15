@@ -352,7 +352,7 @@ export default function Home() {
                 className="font-extrabold text-white mb-5"
                 style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", lineHeight: 1.1, letterSpacing: "-0.02em" }}
               >
-                まずは、<br />話してみてください。
+                営業課題を、<br />ご相談ください。
               </h2>
               <p className="text-slate-400 text-lg max-w-md leading-relaxed">
                 貴社の営業課題をヒアリングし、最適な支援プランをご提案します。
