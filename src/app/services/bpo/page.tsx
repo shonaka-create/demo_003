@@ -1,16 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowRight,
-  CheckCircle2,
-  Phone,
-  Users,
-  Settings,
-  BarChart3,
-  Target,
-  Clock,
-  ChevronRight,
-} from "lucide-react";
+import { ArrowRight, CheckCircle2, Clock, ChevronRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "BPOサービス（営業代行・営業支援） | VALTIC",
@@ -20,56 +11,36 @@ export const metadata: Metadata = {
 
 const services = [
   {
-    icon: Phone,
+    num: "01",
     title: "インサイドセールス",
-    desc: "電話・メール・SNSを活用した非対面での新規開拓。ターゲット選定から架電・メール送信・アポ獲得まで一括対応。",
+    desc: "電話・メール・SNSを活用した非対面での新規開拓。ターゲット選定から架電・アポ獲得まで一括対応。",
     features: ["リスト作成・クレンジング", "架電・メール対応", "アポイント獲得", "CRM管理・レポーティング"],
   },
   {
-    icon: Users,
+    num: "02",
     title: "フィールドセールス",
-    desc: "商談同席・提案サポートから、クロージングまで対面営業を支援。自社営業チームと連携した効率的な体制を構築。",
+    desc: "商談同席・提案サポートからクロージングまで対面営業を支援。自社チームと連携した効率的な体制を構築。",
     features: ["商談同席・提案支援", "クロージングサポート", "営業トーク設計", "契約・アフターフォロー"],
   },
   {
-    icon: Settings,
+    num: "03",
     title: "営業プロセス設計",
-    desc: "現状の営業活動を診断し、最適なプロセスを再設計。営業の「型」を作ることで、属人化を解消しチーム力を底上げ。",
+    desc: "現状の営業活動を診断し、最適なプロセスを再設計。属人化を解消しチーム力を底上げ。",
     features: ["現状診断・課題整理", "営業プロセスマップ作成", "KPI設計・管理体制構築", "SFAツール選定・設定"],
   },
   {
-    icon: Target,
+    num: "04",
     title: "営業組織構築支援",
-    desc: "営業チームの立ち上げ・強化を組織面からサポート。採用戦略から育成体制まで、長期的な組織強化を実現。",
+    desc: "営業チームの立ち上げ・強化を組織面からサポート。採用戦略から育成体制まで一貫支援。",
     features: ["採用基準・JD作成", "オンボーディング設計", "教育・研修プログラム", "マネジメント体制構築"],
   },
 ];
 
 const flow = [
-  {
-    step: "01",
-    title: "ヒアリング・現状診断",
-    desc: "現在の営業活動・課題・目標を詳しくヒアリング。現状を正確に把握した上で最適な支援内容を設計します。",
-    duration: "1〜2週間",
-  },
-  {
-    step: "02",
-    title: "支援プランのご提案",
-    desc: "ヒアリング内容をもとに、具体的な支援範囲・KPI・スケジュール・費用をご提案。ご納得いただいてから契約。",
-    duration: "1週間",
-  },
-  {
-    step: "03",
-    title: "チーム編成・立ち上げ",
-    desc: "貴社専任の営業チームを編成。ツール設定・トークスクリプト作成など、必要な準備を徹底的に行います。",
-    duration: "2〜4週間",
-  },
-  {
-    step: "04",
-    title: "営業活動スタート・PDCA",
-    desc: "実際の営業活動を開始。週次・月次レポートで進捗を共有し、継続的な改善サイクルを回していきます。",
-    duration: "継続的に",
-  },
+  { step: "01", title: "ヒアリング・現状診断", desc: "現在の営業活動・課題・目標をヒアリング。現状を正確に把握した上で最適な支援内容を設計します。", duration: "1〜2週間" },
+  { step: "02", title: "支援プランのご提案", desc: "ヒアリング内容をもとに、支援範囲・KPI・スケジュール・費用をご提案。ご納得いただいてから契約。", duration: "1週間" },
+  { step: "03", title: "チーム編成・立ち上げ", desc: "貴社専任の営業チームを編成。ツール設定・スクリプト作成など必要な準備を徹底的に行います。", duration: "2〜4週間" },
+  { step: "04", title: "営業活動スタート・PDCA", desc: "実際の営業活動を開始。週次・月次レポートで進捗を共有し、継続的な改善サイクルを回します。", duration: "継続的に" },
 ];
 
 const cases = [
@@ -79,7 +50,8 @@ const cases = [
     before: "営業は全てフィールドセールスに頼っており、新規開拓が進まない状況",
     after: "インサイドセールス専門チームの立ち上げにより、月間アポ数が3倍に増加。コストも50%削減",
     period: "3ヶ月",
-    result: "月間受注数 +150%",
+    resultNum: "+150%",
+    resultLabel: "月間受注数",
   },
   {
     tag: "製造業",
@@ -87,7 +59,8 @@ const cases = [
     before: "個人の経験・勘に頼った営業で、担当者が変わると成果が落ちる",
     after: "営業プロセスを可視化・標準化。新入社員でも3ヶ月で即戦力化できる体制を構築",
     period: "6ヶ月",
-    result: "営業生産性 +80%",
+    resultNum: "+80%",
+    resultLabel: "営業生産性",
   },
 ];
 
@@ -96,38 +69,21 @@ const pricing = [
     name: "スタートプラン",
     price: "月額 30万円〜",
     desc: "小規模チームでの営業活動支援に",
-    features: [
-      "専任担当者1名",
-      "インサイドセールス（週3日）",
-      "月次レポーティング",
-      "CRM設定・管理",
-    ],
+    features: ["専任担当者1名", "インサイドセールス（週3日）", "月次レポーティング", "CRM設定・管理"],
     highlight: false,
   },
   {
     name: "スタンダードプラン",
     price: "月額 60万円〜",
     desc: "本格的な営業体制構築に",
-    features: [
-      "専任チーム（2〜3名体制）",
-      "インサイドセールス（フルタイム）",
-      "営業プロセス設計込み",
-      "週次ミーティング・レポート",
-      "SFAツール設定支援",
-    ],
+    features: ["専任チーム（2〜3名体制）", "インサイドセールス（フルタイム）", "営業プロセス設計込み", "週次ミーティング・レポート", "SFAツール設定支援"],
     highlight: true,
   },
   {
     name: "カスタムプラン",
     price: "要相談",
     desc: "複雑な要件・大規模支援に",
-    features: [
-      "大規模チーム編成",
-      "複数サービス組み合わせ",
-      "営業組織構築から一貫支援",
-      "経営層へのレポーティング",
-      "SalesBlade連携オプション",
-    ],
+    features: ["大規模チーム編成", "複数サービス組み合わせ", "営業組織構築から一貫支援", "経営層へのレポーティング", "SalesBlade連携オプション"],
     highlight: false,
   },
 ];
@@ -135,134 +91,135 @@ const pricing = [
 export default function BPOPage() {
   return (
     <div>
-      {/* Hero */}
-      <section className="gradient-hero pt-32 pb-24 relative overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-sky-500/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 left-1/3 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl" />
-        </div>
+      {/* ── HERO ── */}
+      <section className="relative overflow-hidden pt-32 pb-24">
+        <Image
+          src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1920&q=80"
+          alt=""
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/96 via-slate-950/80 to-slate-900/40" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="flex items-center gap-2 text-sky-400 text-sm mb-4">
-            <Link href="/" className="hover:text-sky-300 transition-colors">
-              ホーム
-            </Link>
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="flex items-center gap-2 text-sky-400 text-sm mb-6">
+            <Link href="/" className="hover:text-sky-300 transition-colors">ホーム</Link>
             <ChevronRight className="w-4 h-4" />
-            <span>BPOサービス</span>
+            <span className="text-white/50">BPOサービス</span>
           </div>
 
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-500/20 border border-sky-400/30 text-sky-300 text-sm font-medium mb-6">
+          <div className="inline-flex items-center px-3 py-1 rounded-full border border-sky-400/30 text-sky-300 text-xs font-bold tracking-widest uppercase mb-6">
             BPOサービス
           </div>
 
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6 max-w-3xl">
-            営業代行・営業支援で
-            <br />
+          <h1
+            className="font-extrabold text-white mb-6 max-w-2xl"
+            style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", lineHeight: 1.1, letterSpacing: "-0.025em" }}
+          >
+            営業代行・営業支援で<br />
             <span className="text-gradient">貴社の営業力を最大化</span>
           </h1>
 
-          <p className="text-xl text-slate-300 mb-10 max-w-2xl leading-relaxed">
+          <p className="text-lg text-slate-300 mb-10 max-w-xl" style={{ lineHeight: 1.85 }}>
             単なる外注ではなく、営業プロセスの設計から実行まで一貫して支援。
             専任チームが貴社のビジネスに深く入り込み、成果にコミットします。
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-600 text-white font-semibold text-lg hover:opacity-90 transition-all shadow-xl"
-            >
-              無料相談を予約する
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </div>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 px-7 py-4 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-600 text-white font-bold text-base hover:opacity-90 transition-opacity shadow-lg shadow-sky-900/40"
+          >
+            無料相談を予約する
+            <ArrowRight className="w-4 h-4" />
+          </Link>
 
-          <div className="mt-12 flex flex-wrap gap-8">
+          <div className="mt-14 pt-8 border-t border-white/10 flex flex-wrap gap-10">
             {[
               { num: "300+", label: "支援実績" },
               { num: "95%", label: "継続率" },
               { num: "2.8x", label: "平均受注率向上" },
             ].map((s) => (
-              <div key={s.label} className="flex items-baseline gap-2">
-                <span className="text-3xl font-bold text-gradient">{s.num}</span>
-                <span className="text-sm text-slate-400">{s.label}</span>
+              <div key={s.label}>
+                <div className="text-3xl font-extrabold text-white" style={{ letterSpacing: "-0.03em" }}>{s.num}</div>
+                <div className="text-xs text-slate-400 mt-0.5">{s.label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Services */}
+      {/* ── SERVICES ── */}
       <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <p className="text-sky-600 font-semibold text-sm uppercase tracking-widest mb-3">
-              Service Menu
-            </p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="mb-12">
+            <p className="eyebrow text-sky-600 mb-4">Service Menu</p>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900" style={{ lineHeight: 1.2 }}>
               サービスメニュー
             </h2>
-            <p className="text-slate-500 max-w-xl mx-auto">
-              貴社の課題・フェーズに合わせて、最適なサービスをご提案します
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {services.map((service) => {
-              const Icon = service.icon;
-              return (
+          {/* editorial index list */}
+          <div className="border-t border-slate-200">
+            {services.map((s) => (
+              <div
+                key={s.num}
+                className="grid grid-cols-1 md:grid-cols-[72px_1fr_1fr] gap-x-10 gap-y-4 py-9 border-b border-slate-100 items-start group"
+              >
                 <div
-                  key={service.title}
-                  className="p-8 rounded-2xl border border-slate-100 bg-white shadow-sm card-hover"
+                  className="font-extrabold text-slate-100 leading-none group-hover:text-sky-100 transition-colors"
+                  style={{ fontSize: "clamp(2rem, 3.5vw, 3rem)", letterSpacing: "-0.04em" }}
                 >
-                  <div className="p-3 rounded-xl bg-gradient-to-br from-sky-500 to-blue-600 inline-block mb-4">
-                    <Icon className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-3">{service.title}</h3>
-                  <p className="text-slate-500 text-sm leading-relaxed mb-5">{service.desc}</p>
-                  <ul className="space-y-2">
-                    {service.features.map((f) => (
-                      <li key={f} className="flex items-center gap-2 text-sm text-slate-600">
-                        <CheckCircle2 className="w-4 h-4 text-sky-500 shrink-0" />
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
+                  {s.num}
                 </div>
-              );
-            })}
+                <div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-2">{s.title}</h3>
+                  <p className="text-sm text-slate-500 leading-relaxed">{s.desc}</p>
+                </div>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5 pt-0.5">
+                  {s.features.map((f) => (
+                    <li key={f} className="flex items-center gap-2 text-sm text-slate-500">
+                      <span className="w-1.5 h-1.5 rounded-full bg-sky-400 shrink-0" />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Flow */}
+      {/* ── FLOW ── */}
       <section className="py-20 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <p className="text-sky-600 font-semibold text-sm uppercase tracking-widest mb-3">
-              How it works
-            </p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="mb-12">
+            <p className="eyebrow text-sky-600 mb-4">How it works</p>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900" style={{ lineHeight: 1.2 }}>
               支援の進め方
             </h2>
-            <p className="text-slate-500 max-w-xl mx-auto">
-              まずはヒアリングから。貴社の状況を深く理解した上で、最適なプランをご提案します。
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {flow.map((step, i) => (
-              <div key={step.step} className="relative">
+              <div key={step.step} className="relative bg-white rounded-2xl p-7 border border-slate-100">
                 {i < flow.length - 1 && (
-                  <div className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-gradient-to-r from-sky-200 to-indigo-200 -ml-4 z-0" />
-                )}
-                <div className="relative bg-white rounded-2xl p-6 border border-slate-100 shadow-sm z-10">
-                  <div className="text-3xl font-bold text-gradient mb-4">{step.step}</div>
-                  <h3 className="font-bold text-slate-900 mb-2">{step.title}</h3>
-                  <p className="text-sm text-slate-500 leading-relaxed mb-4">{step.desc}</p>
-                  <div className="flex items-center gap-1 text-xs text-sky-600 font-medium">
-                    <Clock className="w-3.5 h-3.5" />
-                    {step.duration}
+                  <div className="hidden lg:block absolute top-9 -right-3 z-10">
+                    <ArrowRight className="w-4 h-4 text-slate-300" />
                   </div>
+                )}
+                <div
+                  className="font-extrabold text-sky-100 mb-5 leading-none"
+                  style={{ fontSize: "3rem", letterSpacing: "-0.04em" }}
+                >
+                  {step.step}
+                </div>
+                <h3 className="font-bold text-slate-900 mb-2 text-sm">{step.title}</h3>
+                <p className="text-sm text-slate-500 leading-relaxed mb-4">{step.desc}</p>
+                <div className="flex items-center gap-1.5 text-xs text-sky-600 font-medium">
+                  <Clock className="w-3.5 h-3.5" />
+                  {step.duration}
                 </div>
               </div>
             ))}
@@ -270,45 +227,67 @@ export default function BPOPage() {
         </div>
       </section>
 
-      {/* Cases */}
+      {/* ── CASE STUDIES ── */}
       <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <p className="text-sky-600 font-semibold text-sm uppercase tracking-widest mb-3">
-              Case Studies
-            </p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="mb-12">
+            <p className="eyebrow text-sky-600 mb-4">Case Studies</p>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900" style={{ lineHeight: 1.2 }}>
               支援事例
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {cases.map((c) => (
-              <div key={c.title} className="rounded-2xl border border-slate-200 bg-white overflow-hidden card-hover">
-                <div className="px-7 pt-7 pb-5 border-b border-slate-100">
-                  <span className="inline-block px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 text-xs font-semibold mb-3">
-                    {c.tag}
-                  </span>
-                  <h3 className="font-bold text-slate-900 text-lg leading-snug">{c.title}</h3>
+              <div key={c.title} className="rounded-2xl overflow-hidden border border-slate-100 shadow-sm">
+
+                {/* ① HEADER — dark bg, title + result number (最重要要素) */}
+                <div className="bg-slate-950 px-8 py-7">
+                  <div className="flex items-start justify-between gap-6">
+                    <div className="min-w-0">
+                      <span className="inline-block px-2 py-0.5 rounded bg-sky-500/20 text-sky-400 text-[10px] font-bold tracking-widest uppercase mb-4">
+                        {c.tag}
+                      </span>
+                      <h3 className="font-bold text-white text-base leading-snug">{c.title}</h3>
+                    </div>
+                    {/* 成果数字 = 最も目立つ要素 */}
+                    <div className="shrink-0 text-right">
+                      <div
+                        className="font-extrabold leading-none"
+                        style={{
+                          fontSize: "2.5rem",
+                          letterSpacing: "-0.04em",
+                          background: "linear-gradient(135deg, #38BDF8 0%, #818CF8 100%)",
+                          WebkitBackgroundClip: "text",
+                          WebkitTextFillColor: "transparent",
+                          backgroundClip: "text",
+                        }}
+                      >
+                        {c.resultNum}
+                      </div>
+                      <div className="text-slate-500 text-xs mt-1">{c.resultLabel}</div>
+                    </div>
+                  </div>
                 </div>
-                <div className="px-7 py-5 space-y-5">
-                  <div>
-                    <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">課題</p>
-                    <p className="text-sm text-slate-600 leading-relaxed">{c.before}</p>
+
+                {/* ② BODY — 2ゾーン: 課題（ミュート）| 解決・成果（強調） */}
+                <div className="grid grid-cols-2 divide-x divide-slate-100">
+                  {/* 課題 — 背景グレー・テキスト淡い → 重要度低 */}
+                  <div className="px-6 py-5 bg-slate-50">
+                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">課題</p>
+                    <p className="text-sm text-slate-400 leading-relaxed">{c.before}</p>
                   </div>
-                  <div className="border-t border-slate-100 pt-5">
-                    <p className="text-xs font-bold text-sky-600 uppercase tracking-widest mb-2">解決・成果</p>
-                    <p className="text-sm text-slate-700 leading-relaxed">{c.after}</p>
+                  {/* 解決・成果 — 白背景・テキスト濃い・bold → 重要度高 */}
+                  <div className="px-6 py-5 bg-white">
+                    <p className="text-[10px] font-bold text-sky-600 uppercase tracking-widest mb-2">解決・成果</p>
+                    <p className="text-sm font-semibold text-slate-800 leading-relaxed">{c.after}</p>
                   </div>
-                  <div className="flex items-center justify-between pt-2">
-                    <div className="flex items-center gap-1.5 text-xs text-slate-400">
-                      <Clock className="w-3.5 h-3.5" />
-                      支援期間 {c.period}
-                    </div>
-                    <div className="px-3 py-1 rounded-md bg-slate-900 text-white text-xs font-bold tracking-wide">
-                      {c.result}
-                    </div>
-                  </div>
+                </div>
+
+                {/* ③ FOOTER — 補足情報（最小化） */}
+                <div className="px-8 py-4 border-t border-slate-100 flex items-center gap-1.5 text-xs text-slate-400">
+                  <Clock className="w-3.5 h-3.5" />
+                  支援期間 {c.period}
                 </div>
               </div>
             ))}
@@ -316,68 +295,52 @@ export default function BPOPage() {
         </div>
       </section>
 
-      {/* Pricing */}
+      {/* ── PRICING ── */}
       <section className="py-20 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <p className="text-sky-600 font-semibold text-sm uppercase tracking-widest mb-3">
-              Pricing
-            </p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="mb-12">
+            <p className="eyebrow text-sky-600 mb-4">Pricing</p>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900" style={{ lineHeight: 1.2 }}>
               料金プラン
             </h2>
-            <p className="text-slate-500 max-w-xl mx-auto">
-              貴社の規模や目標に合わせて最適なプランをご選択いただけます。
-              詳細はお気軽にご相談ください。
+            <p className="text-slate-500 mt-3 max-w-xl">
+              貴社の規模や目標に合わせて最適なプランをご選択ください。
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {pricing.map((plan) => (
               <div
                 key={plan.name}
                 className={`rounded-2xl overflow-hidden ${
                   plan.highlight
-                    ? "bg-gradient-to-br from-sky-500 to-indigo-600 shadow-xl shadow-sky-200"
+                    ? "bg-slate-900 ring-2 ring-sky-500/40 shadow-xl shadow-slate-900/20"
                     : "bg-white border border-slate-100 shadow-sm"
-                } card-hover`}
+                }`}
               >
                 {plan.highlight && (
-                  <div className="bg-white/20 text-center py-2">
-                    <span className="text-white text-xs font-bold uppercase tracking-widest">
-                      Most Popular
-                    </span>
+                  <div className="bg-gradient-to-r from-sky-500 to-indigo-600 text-center py-2">
+                    <span className="text-white text-xs font-bold uppercase tracking-widest">Most Popular</span>
                   </div>
                 )}
                 <div className="p-8">
-                  <h3
-                    className={`font-bold text-xl mb-1 ${
-                      plan.highlight ? "text-white" : "text-slate-900"
-                    }`}
-                  >
+                  <h3 className={`font-bold text-xl mb-1 ${plan.highlight ? "text-white" : "text-slate-900"}`}>
                     {plan.name}
                   </h3>
-                  <p className={`text-sm mb-4 ${plan.highlight ? "text-white/70" : "text-slate-500"}`}>
+                  <p className={`text-sm mb-5 ${plan.highlight ? "text-slate-400" : "text-slate-500"}`}>
                     {plan.desc}
                   </p>
-                  <p className={`text-2xl font-bold mb-6 ${plan.highlight ? "text-white" : "text-gradient"}`}>
+                  <p
+                    className={`text-2xl font-extrabold mb-6 ${plan.highlight ? "text-white" : "text-slate-900"}`}
+                    style={{ letterSpacing: "-0.02em" }}
+                  >
                     {plan.price}
                   </p>
                   <ul className="space-y-3 mb-8">
                     {plan.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2">
-                        <CheckCircle2
-                          className={`w-4 h-4 shrink-0 mt-0.5 ${
-                            plan.highlight ? "text-white/80" : "text-sky-500"
-                          }`}
-                        />
-                        <span
-                          className={`text-sm ${
-                            plan.highlight ? "text-white/90" : "text-slate-600"
-                          }`}
-                        >
-                          {f}
-                        </span>
+                      <li key={f} className="flex items-start gap-2.5">
+                        <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${plan.highlight ? "text-sky-400" : "text-sky-500"}`} />
+                        <span className={`text-sm ${plan.highlight ? "text-slate-300" : "text-slate-600"}`}>{f}</span>
                       </li>
                     ))}
                   </ul>
@@ -385,8 +348,8 @@ export default function BPOPage() {
                     href="/contact"
                     className={`block text-center px-6 py-3 rounded-xl font-semibold text-sm transition-all ${
                       plan.highlight
-                        ? "bg-white text-sky-600 hover:bg-slate-50"
-                        : "bg-gradient-to-r from-sky-500 to-indigo-600 text-white hover:opacity-90"
+                        ? "bg-gradient-to-r from-sky-500 to-indigo-600 text-white hover:opacity-90"
+                        : "bg-slate-900 text-white hover:bg-slate-800"
                     }`}
                   >
                     相談する
@@ -402,23 +365,34 @@ export default function BPOPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 gradient-cta">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            まずは無料相談から
-          </h2>
-          <p className="text-white/80 text-lg mb-10 max-w-xl mx-auto">
-            貴社の課題をヒアリングし、最適な支援内容をご提案します。
-            相談は完全無料です。
-          </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-sky-600 font-bold text-lg hover:bg-slate-50 transition-colors shadow-xl"
-          >
-            無料相談を予約する
-            <ArrowRight className="w-5 h-5" />
-          </Link>
+      {/* ── CTA ── */}
+      <section className="py-24 bg-slate-900">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-12 items-center">
+            <div>
+              <p className="eyebrow text-sky-400 mb-6">Contact</p>
+              <h2
+                className="font-extrabold text-white mb-5"
+                style={{ fontSize: "clamp(2rem, 4vw, 3rem)", lineHeight: 1.1, letterSpacing: "-0.02em" }}
+              >
+                営業課題を、<br />ご相談ください。
+              </h2>
+              <p className="text-slate-400 text-base max-w-md leading-relaxed">
+                まずはヒアリングから。貴社の状況を深く理解した上で、最適なプランをご提案します。
+              </p>
+            </div>
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
+              <p className="text-white font-bold mb-1.5">30分のオンライン相談</p>
+              <p className="text-slate-400 text-sm mb-6">課題を共有するだけで大丈夫です</p>
+              <Link
+                href="/contact"
+                className="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-600 text-white font-bold text-base hover:opacity-90 transition-opacity"
+              >
+                無料相談を予約する
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     </div>
