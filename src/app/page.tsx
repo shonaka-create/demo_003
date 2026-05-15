@@ -11,26 +11,30 @@ import {
   Building2,
   Star,
   ChevronRight,
+  UserX,
+  GitBranch,
+  HelpCircle,
+  EyeOff,
 } from "lucide-react";
 
 const problems = [
   {
-    icon: "😰",
+    icon: UserX,
     title: "営業人材が採用できない・育たない",
     desc: "優秀な営業人材の確保に苦労し、教育コストも膨大に",
   },
   {
-    icon: "📉",
+    icon: GitBranch,
     title: "営業プロセスが属人化している",
     desc: "トップ営業に依存し、チーム全体の底上げができない",
   },
   {
-    icon: "🔄",
+    icon: HelpCircle,
     title: "何をどう変えればいいかわからない",
     desc: "課題はわかるが、改善の打ち手・優先順位が不明確",
   },
   {
-    icon: "📊",
+    icon: EyeOff,
     title: "営業活動の可視化ができていない",
     desc: "KPIの管理が曖昧で、改善サイクルが回らない",
   },
@@ -203,36 +207,34 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {problems.map((p) => (
-              <div
-                key={p.title}
-                className="flex gap-4 p-6 rounded-2xl bg-slate-50 border border-slate-100 card-hover"
-              >
-                <div className="text-3xl shrink-0">{p.icon}</div>
-                <div>
-                  <h3 className="font-semibold text-slate-900 mb-1">{p.title}</h3>
-                  <p className="text-sm text-slate-500">{p.desc}</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {problems.map((p, i) => {
+              const Icon = p.icon;
+              return (
+                <div
+                  key={p.title}
+                  className="flex gap-5 p-6 rounded-xl bg-white border border-slate-200 card-hover"
+                >
+                  <div className="shrink-0 w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center">
+                    <Icon className="w-5 h-5 text-slate-500" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-slate-900 mb-1">{p.title}</h3>
+                    <p className="text-sm text-slate-500 leading-relaxed">{p.desc}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
-          <div className="mt-10 p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-sky-50 to-indigo-50 border border-sky-100">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-              <div className="p-3 rounded-xl bg-gradient-to-br from-sky-500 to-indigo-600 shrink-0">
-                <CheckCircle2 className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <p className="font-bold text-slate-900 text-lg mb-1">
-                  VALTICなら、これらの課題をまとめて解決できます
-                </p>
-                <p className="text-slate-600">
-                  BPOサービスとAIツールを組み合わせ、営業の設計から実行・改善まで一気通貫で支援。
-                  個別課題への対症療法ではなく、根本から営業力を変革します。
-                </p>
-              </div>
-            </div>
+          <div className="mt-8 p-7 rounded-xl bg-slate-900 text-white">
+            <p className="font-bold text-lg mb-1">
+              VALTICは、これらの課題に一気通貫で対応します
+            </p>
+            <p className="text-slate-300 text-sm leading-relaxed">
+              BPOサービスとAIツールを組み合わせ、営業の設計から実行・改善まで責任を持って支援。
+              個別の対症療法ではなく、営業の仕組みごと変えます。
+            </p>
           </div>
         </div>
       </section>
@@ -480,9 +482,6 @@ export default function Home() {
               <ChevronRight className="w-5 h-5" />
             </Link>
           </div>
-          <p className="mt-6 text-white/60 text-sm">
-            初回相談は完全無料・専任担当者が対応いたします
-          </p>
         </div>
       </section>
     </div>

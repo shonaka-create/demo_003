@@ -289,26 +289,11 @@ export default function ContactPage() {
 
                 <button
                   type="submit"
-                  className="mt-6 w-full flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-600 text-white font-bold text-base hover:opacity-90 transition-opacity shadow-lg hover:shadow-sky-200"
+                  className="mt-6 w-full flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-slate-900 text-white font-bold text-base hover:bg-slate-800 transition-colors"
                 >
                   送信する
                   <ArrowRight className="w-5 h-5" />
                 </button>
-
-                <div className="mt-4 flex items-center justify-center gap-4 text-xs text-slate-400">
-                  <div className="flex items-center gap-1">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-green-500" />
-                    相談無料
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-green-500" />
-                    強引な営業なし
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-green-500" />
-                    専任担当が対応
-                  </div>
-                </div>
               </form>
             </div>
           </div>

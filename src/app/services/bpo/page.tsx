@@ -284,28 +284,28 @@ export default function BPOPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {cases.map((c) => (
-              <div key={c.title} className="rounded-2xl border border-slate-100 overflow-hidden shadow-sm card-hover">
-                <div className="bg-gradient-to-r from-sky-500 to-indigo-600 px-6 py-3">
-                  <span className="text-white text-xs font-semibold">{c.tag}</span>
+              <div key={c.title} className="rounded-2xl border border-slate-200 bg-white overflow-hidden card-hover">
+                <div className="px-7 pt-7 pb-5 border-b border-slate-100">
+                  <span className="inline-block px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 text-xs font-semibold mb-3">
+                    {c.tag}
+                  </span>
+                  <h3 className="font-bold text-slate-900 text-lg leading-snug">{c.title}</h3>
                 </div>
-                <div className="p-6">
-                  <h3 className="font-bold text-slate-900 text-lg mb-5">{c.title}</h3>
-                  <div className="space-y-4">
-                    <div className="p-4 rounded-xl bg-red-50 border border-red-100">
-                      <p className="text-xs font-semibold text-red-600 mb-1">BEFORE</p>
-                      <p className="text-sm text-slate-600">{c.before}</p>
-                    </div>
-                    <div className="p-4 rounded-xl bg-green-50 border border-green-100">
-                      <p className="text-xs font-semibold text-green-600 mb-1">AFTER</p>
-                      <p className="text-sm text-slate-600">{c.after}</p>
-                    </div>
+                <div className="px-7 py-5 space-y-5">
+                  <div>
+                    <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">課題</p>
+                    <p className="text-sm text-slate-600 leading-relaxed">{c.before}</p>
                   </div>
-                  <div className="mt-4 flex items-center justify-between">
-                    <div className="flex items-center gap-2 text-sm text-slate-500">
-                      <Clock className="w-4 h-4" />
-                      支援期間: {c.period}
+                  <div className="border-t border-slate-100 pt-5">
+                    <p className="text-xs font-bold text-sky-600 uppercase tracking-widest mb-2">解決・成果</p>
+                    <p className="text-sm text-slate-700 leading-relaxed">{c.after}</p>
+                  </div>
+                  <div className="flex items-center justify-between pt-2">
+                    <div className="flex items-center gap-1.5 text-xs text-slate-400">
+                      <Clock className="w-3.5 h-3.5" />
+                      支援期間 {c.period}
                     </div>
-                    <div className="px-3 py-1 rounded-full bg-gradient-to-r from-sky-500 to-indigo-600 text-white text-xs font-bold">
+                    <div className="px-3 py-1 rounded-md bg-slate-900 text-white text-xs font-bold tracking-wide">
                       {c.result}
                     </div>
                   </div>
@@ -419,20 +419,6 @@ export default function BPOPage() {
             無料相談を予約する
             <ArrowRight className="w-5 h-5" />
           </Link>
-          <div className="mt-6 flex items-center justify-center gap-6 text-white/60 text-sm">
-            <div className="flex items-center gap-1">
-              <CheckCircle2 className="w-4 h-4" />
-              相談無料
-            </div>
-            <div className="flex items-center gap-1">
-              <CheckCircle2 className="w-4 h-4" />
-              強引な勧誘なし
-            </div>
-            <div className="flex items-center gap-1">
-              <CheckCircle2 className="w-4 h-4" />
-              専任担当が対応
-            </div>
-          </div>
         </div>
       </section>
     </div>
