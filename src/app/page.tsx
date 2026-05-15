@@ -150,48 +150,46 @@ export default function Home() {
       </section>
 
       {/* ━━━━━━━━━━━━━━━━ PROBLEM ━━━━━━━━━━━━━━━━ */}
-      {/* 大番号アンカー型リスト — 白背景でHeroとのコントラスト */}
-      <section className="py-28 bg-white">
+      {/* インデックス表スタイル — 番号バッジ + 3カラム */}
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          {/* header */}
-          <div className="mb-16 max-w-xl">
-            <p className="eyebrow text-sky-600 mb-4">Issues</p>
-            <h2 className="text-4xl sm:text-5xl font-extrabold text-slate-900" style={{ lineHeight: 1.15 }}>
-              多くの企業が<br />抱えている課題
-            </h2>
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+            <div>
+              <p className="eyebrow text-sky-600 mb-3">Issues</p>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900" style={{ lineHeight: 1.2 }}>
+                多くの企業が抱えている課題
+              </h2>
+            </div>
           </div>
 
-          {/* numbered list — 大番号が視線のアンカーになる */}
-          <div className="divide-y divide-slate-100">
+          {/* 3カラム インデックス表 */}
+          <div className="border-t border-slate-200">
             {problems.map((p, i) => (
-              <div key={p.title} className="flex gap-6 sm:gap-10 py-8 group">
-                {/* large number */}
-                <div
-                  className="deco-number shrink-0 w-20 sm:w-28 text-right transition-colors group-hover:text-slate-200"
-                  aria-hidden="true"
-                >
-                  {String(i + 1).padStart(2, "0")}
-                </div>
-                {/* content */}
-                <div className="flex-1 flex items-center">
-                  <div>
-                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2">{p.title}</h3>
-                    <p className="text-sm text-slate-500 max-w-xl">{p.desc}</p>
-                  </div>
-                </div>
+              <div
+                key={p.title}
+                className="grid grid-cols-[36px_1fr] lg:grid-cols-[36px_2fr_3fr] gap-x-6 gap-y-1 py-5 border-b border-slate-100 items-start"
+              >
+                {/* 番号バッジ */}
+                <span className="w-7 h-7 rounded bg-slate-900 text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
+                  {i + 1}
+                </span>
+                {/* タイトル */}
+                <h3 className="font-semibold text-slate-900 text-sm sm:text-base">{p.title}</h3>
+                {/* 説明 — デスクトップのみ右カラム */}
+                <p className="col-start-2 lg:col-start-3 text-sm text-slate-500 leading-relaxed">{p.desc}</p>
               </div>
             ))}
           </div>
 
           {/* solution bridge */}
-          <div className="mt-10 bg-slate-900 rounded-xl p-8 sm:p-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <div className="mt-8 bg-slate-900 rounded-xl px-8 py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
-              <p className="text-white font-bold text-xl mb-1">VALTICは、これらを一気通貫で解決します</p>
-              <p className="text-slate-400 text-sm">BPOとAIで設計から実行まで。個別の対症療法ではなく、営業の仕組みごと変えます。</p>
+              <p className="text-white font-bold mb-0.5">VALTICは、これらを一気通貫で解決します</p>
+              <p className="text-slate-400 text-sm">BPOとAIで設計から実行まで。営業の仕組みごと変えます。</p>
             </div>
             <Link
               href="/contact"
-              className="shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-white text-slate-900 font-bold text-sm hover:bg-slate-100 transition-colors"
+              className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white text-slate-900 font-bold text-sm hover:bg-slate-100 transition-colors"
             >
               相談する
               <ArrowRight className="w-4 h-4" />
@@ -302,40 +300,48 @@ export default function Home() {
       </section>
 
       {/* ━━━━━━━━━━━━━━━━ WHY VALTIC ━━━━━━━━━━━━━━━━ */}
-      {/* 番号付きリスト — 明るい温白背景でResultsとのコントラスト */}
-      <section className="py-28" style={{ background: "#FAFAF8" }}>
+      {/* 2×2 アイコンカードグリッド — Issuesと完全に異なる構造 */}
+      <section className="py-16 bg-[#F4F6F9]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-16">
-            {/* sticky label */}
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
             <div>
-              <p className="eyebrow text-sky-600 mb-4">Why VALTIC</p>
+              <p className="eyebrow text-sky-600 mb-3">Why VALTIC</p>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900" style={{ lineHeight: 1.2 }}>
-                他社と<br />何が違うのか
+                他社と何が違うのか
               </h2>
             </div>
+            <p className="text-sm text-slate-500 max-w-xs sm:text-right">
+              「提案だけ」「ツールだけ」ではなく、<br />成果にコミットします。
+            </p>
+          </div>
 
-            {/* list */}
-            <div className="divide-y divide-slate-200">
-              {whyValtic.map((item, i) => {
-                const Icon = item.icon;
-                return (
-                  <div key={item.title} className="flex gap-6 py-8 first:pt-0 group">
-                    <div className="deco-number shrink-0 w-14 text-right transition-colors group-hover:text-slate-200" aria-hidden="true">
-                      {String(i + 1).padStart(2, "0")}
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-2">
-                        <div className="p-1.5 rounded-lg bg-slate-100">
-                          <Icon className="w-4 h-4 text-slate-600" />
-                        </div>
-                        <h3 className="font-bold text-slate-900">{item.title}</h3>
-                      </div>
-                      <p className="text-sm text-slate-500 leading-relaxed">{item.desc}</p>
-                    </div>
+          {/* 2×2 カードグリッド */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {whyValtic.map((item, i) => {
+              const Icon = item.icon;
+              const iconColors = [
+                "from-sky-500 to-blue-600",
+                "from-indigo-500 to-violet-600",
+                "from-teal-500 to-cyan-600",
+                "from-slate-600 to-slate-800",
+              ];
+              return (
+                <div
+                  key={item.title}
+                  className="bg-white rounded-xl p-6 border border-slate-100 flex gap-4"
+                >
+                  <div
+                    className={`w-10 h-10 rounded-lg bg-gradient-to-br ${iconColors[i]} flex items-center justify-center shrink-0`}
+                  >
+                    <Icon className="w-5 h-5 text-white" />
                   </div>
-                );
-              })}
-            </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-bold text-slate-900 mb-1.5 text-sm sm:text-base">{item.title}</h3>
+                    <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
